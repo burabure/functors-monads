@@ -1,16 +1,22 @@
-import { curry, compose, prop, map } from 'ramda'
+import { curry, compose, prop, path, map } from 'ramda'
+// import Task from 'data.task'
+// import IO from 'lib/IO'
 
 /**
  * Utils
  */
-const makeImg = (url) =>
-  $('<img />', { src: url })
+
+// makeImg : imgSrc -> Html Img
+const makeImg = (imgSrc) =>
+  $('<img />', { src: imgSrc })
 
 const Impure = {
+  // getJSON : (Json -> a) -> Url -> ()
   getJSON: curry((callback, url) =>
     $.getJSON(url, callback)
   ),
 
+  // setHtml : DOMSelector -> Html -> HTML()
   setHtml: curry((selector, html) =>
     $(selector).html(html)
   ),
@@ -26,32 +32,36 @@ const log = curry((tag, x) => {
  * Pure
  */
 
+// makeUrl : String -> Url
 const makeUrl = (url) =>
   `https://api.flickr.com/services/feeds/photos_public.gne?tags=${url}&format=json&jsoncallback=?`
 
-const getMediaUrl =
-  compose(prop('m'), prop('media'))
-
+// getSrcs : Json -> [ImgSrc]
 const getSrcs =
-  compose(map(getMediaUrl), prop('items'))
+  undefined
 
+// getMediaUrl : { media: { m } } -> ImgSrc
+const getMediaUrl =
+  undefined
+
+// getImages : Url -> [Html Img]
 const getImages =
-  compose(map(makeImg), getSrcs)
+  undefined
 
 
 /**
  * Impure
  */
 
+// renderImages : Url -> HTML()
 const renderImages =
-  compose(Impure.setHtml('#main'), getImages)
+  undefined
 
+// app : String -> HTML()
 const app =
-  compose(Impure.getJSON(renderImages), makeUrl)
+  compose(Impure.getJSON(renderImages), undefined)
 
 
-/**
- * Run
- */
+/** Run **/
 
 app('cats')
