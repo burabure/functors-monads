@@ -44,7 +44,7 @@ const getSrcs =
 const getMediaUrl =
   undefined
 
-// getImages : Url -> [Html Img]
+// getImages : Json -> [Html Img]
 const getImages =
   undefined
 
@@ -53,7 +53,7 @@ const getImages =
  * Impure
  */
 
-// renderImages : Url -> HTML()
+// renderImages : Json -> HTML()
 const renderImages =
   undefined
 
