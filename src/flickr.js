@@ -36,12 +36,12 @@ const log = curry((tag, x) => {
 const makeUrl = (url) =>
   `https://api.flickr.com/services/feeds/photos_public.gne?tags=${url}&format=json&jsoncallback=?`
 
-// getSrcs : Json -> [ImgSrc]
-const getSrcs =
-  undefined
-
 // getMediaUrl : { media: { m } } -> ImgSrc
 const getMediaUrl =
+  undefined
+
+// getSrcs : Json -> [ImgSrc]
+const getSrcs =
   undefined
 
 // getImages : Json -> [Html Img]
